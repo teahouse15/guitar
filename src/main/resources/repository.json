@@ -1,0 +1,42 @@
+{
+  "description": "Description of repository structures, for generation of the relational database table and persistence validation.",
+  "version": "4.41.0.3, Mar 23, 2019",
+  "authors": [
+    "Liang Ding",
+    "Zephyr",
+    "Bill Ho",
+    "qiankunpingtai"
+  ],
+  "since": "0.2.0",
+  "repositories": [
+    {
+      "name": "user",
+      "description": "用户信息",
+      "keys": [
+        {
+          "name": "oId",
+          "type": "String",
+          "length": 19,
+          "description": "主键 用户ID"
+        },
+        {
+          "name": "userName",
+          "type": "String",
+          "length": 64,
+          "description": "用户名信息"
+        },
+        {
+          "name": "userGroup",
+          "type": "int",
+          "description": "用户组"
+        },
+        {
+          "name": "userAvatar",
+          "type": "String",
+          "length": 255,
+          "description": "用户头像URL地址"
+        }
+      ]
+    }
+  ]
+}

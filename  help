@@ -1,0 +1,11 @@
+静态资源定义（src/main/resources/static-resources.xml）
+用于定义应用中用到的静态资源路径
+
+框架通用配置（src/main/resources/latke.properties）
+定义了服务器访问信息、IoC 扫描包、运行环境、运行模式、部分服务实现（缓存服务、用户服务）、缓存容量、静态资源版本等
+
+框架本地实现配置（src/main/resources/local.properties）
+定义了本地容器相关参数，例如数据库、JDBC 配置等
+
+数据库表结构（src/main/resources/repository.json）
+定义了数据库表结构，用于生成建表语句以及持久化时的校验
