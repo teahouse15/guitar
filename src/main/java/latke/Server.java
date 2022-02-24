@@ -21,7 +21,7 @@ public class Server extends BaseServer {
     private static final String VERSION = "0.0.1";
 
     public static void main(String[] args) {
-
+        LOGGER.log(Level.INFO, "test...");
         Latkes.setScanPath(Server.class.getPackage().getName());
         Latkes.init();
 
@@ -34,7 +34,14 @@ public class Server extends BaseServer {
             Latkes.shutdown();
         }));
 
-        Router.requestMapping();
+        // 读取sharing_option表中 配置信息
+
+
+
+
+        Router router = new Router();
+        router.requestMapping();
+
 
         LOGGER.log(Level.INFO, "Guitar [" + VERSION + "] Running...");
         server.start(8080);

@@ -37,6 +37,71 @@
           "description": "用户头像URL地址"
         }
       ]
+    },
+    {
+      "name": "group",
+      "description": "用户组信息",
+      "keys": [
+        {
+          "name": "oId",
+          "type": "String",
+          "length": 19,
+          "description": "主键 用户组ID"
+        },
+        {
+          "name": "groupName",
+          "type": "String",
+          "length": 64,
+          "description": "用户组名称"
+        },
+        {
+          "name": "groupLevel",
+          "type": "int",
+          "description": "用户组等级"
+        }
+      ]
+    },
+    {
+      "name": "drivermap",
+      "description": "文件夹映射关系",
+      "keys": [
+        {
+          "name": "oId",
+          "type": "String",
+          "length": 19,
+          "description": "主键 用户组ID"
+        },
+        {
+          "name": "dirName",
+          "type": "String",
+          "length": 64,
+          "description": "用户组名称"
+        },
+        {
+          "name": "dirPath",
+          "type": "String",
+          "length": 255,
+          "description": "文件夹路径"
+        }
+      ]
+    },
+    {
+      "name": "option",
+      "description": "系统设置信息",
+      "keys": [
+        {
+          "name": "oId",
+          "type": "String",
+          "length": 64,
+          "description": "主键 系统设置"
+        },
+        {
+          "name": "optionValue",
+          "type": "String",
+          "length": 255,
+          "description": "系统设置 值"
+        }
+      ]
     }
   ]
 }
