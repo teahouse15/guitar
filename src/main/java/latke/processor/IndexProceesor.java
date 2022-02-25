@@ -13,15 +13,13 @@ import org.json.JSONObject;
 @Singleton
 public class IndexProceesor {
 
-    private static final Logger LOGGER = LogManager.getLogger(UserService.class);
+    private static final Logger LOGGER = LogManager.getLogger(IndexProceesor.class);
 
     @Inject
     private OptionService optionService;
 
     public void index(final RequestContext context) {
-
-        final JSONObject serverStoragePath = optionService.queryOption("serverStoragePath");
-
-        context.renderJSON(new JSONObject());
+        final JSONObject serverStoragePath = optionService.queryServerDriverPath();
+        context.renderJSON(serverStoragePath);
     }
 }

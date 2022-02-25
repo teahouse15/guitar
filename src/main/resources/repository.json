@@ -92,7 +92,13 @@
         {
           "name": "oId",
           "type": "String",
-          "length": 64,
+          "length": 19,
+          "description": "主键 配置信息ID"
+        },
+        {
+          "name": "optionName",
+          "type": "String",
+          "length": 255,
           "description": "主键 系统设置"
         },
         {

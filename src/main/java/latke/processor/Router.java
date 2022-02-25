@@ -2,7 +2,6 @@ package latke.processor;
 
 import org.b3log.latke.http.Dispatcher;
 import org.b3log.latke.ioc.BeanManager;
-import org.b3log.latke.ioc.Inject;
 
 public class Router {
 
@@ -11,6 +10,7 @@ public class Router {
         final BeanManager beanManager = BeanManager.getInstance();
         final UserProcessor userProcessor = beanManager.getReference(UserProcessor.class);
         final IndexProceesor indexProceesor = beanManager.getReference(IndexProceesor.class);
+        final OptionProcessor optionProcessor = beanManager.getReference(OptionProcessor.class);
 
         // 配置路由
         final Dispatcher.RouterGroup routeGroup = Dispatcher.group();
@@ -22,7 +22,12 @@ public class Router {
 //                get("/var/{pathVar}", registerProcessor::paraPathVar).
 //                router().get().post().uri("/greeting").handler(helloProcessor::greeting);
         // Index处理 第一次访问作为匿名用户
+
+
         routeGroup.get("/", indexProceesor::index);
+
+        // setServerDriverPath?serverDriverPath=xxx&adminToken=xxx
+        Dispatcher.post("/api/setServerDriverPath", optionProcessor::setServerDriverPath);
 
         Dispatcher.mapping();
     }
