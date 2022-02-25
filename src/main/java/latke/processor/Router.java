@@ -29,6 +29,8 @@ public class Router {
         // setServerDriverPath?serverDriverPath=xxx&adminToken=xxx
         Dispatcher.post("/api/setServerDriverPath", optionProcessor::setServerDriverPath);
 
+        Dispatcher.get("/index", indexProceesor::test);
+
         Dispatcher.mapping();
     }
 }

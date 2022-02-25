@@ -21,10 +21,15 @@ public class Server extends BaseServer {
     private static final String VERSION = "0.0.1";
 
     public static void main(String[] args) {
-        LOGGER.log(Level.INFO, "test...");
-        Latkes.setScanPath(Server.class.getPackage().getName());
-        Latkes.init();
 
+        try {
+            Latkes.setScanPath(Server.class.getPackage().getName());
+            Latkes.init();
+        } catch (final Exception e) {
+            LOGGER.log(Level.ERROR, "Latke init failed, please configure latke.props or run with args, visit https://ld246.com/article/1492881378588 for more details");
+
+            System.exit(-1);
+        }
         // 初始化数据库表
         JdbcRepositories.initAllTables();
 

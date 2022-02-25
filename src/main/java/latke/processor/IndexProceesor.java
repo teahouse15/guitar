@@ -22,4 +22,12 @@ public class IndexProceesor {
         final JSONObject serverStoragePath = optionService.queryServerDriverPath();
         context.renderJSON(serverStoragePath);
     }
+
+    public void test(final RequestContext context) {
+        final String paraVar = context.param("path");
+        final JSONObject jsonObject = new JSONObject();
+        jsonObject.put("path", paraVar);
+        System.out.println(jsonObject.toString());
+        context.renderJSON(jsonObject);
+    }
 }
