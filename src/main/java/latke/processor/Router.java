@@ -11,6 +11,7 @@ public class Router {
         final UserProcessor userProcessor = beanManager.getReference(UserProcessor.class);
         final IndexProceesor indexProceesor = beanManager.getReference(IndexProceesor.class);
         final OptionProcessor optionProcessor = beanManager.getReference(OptionProcessor.class);
+        final DiskProcessor diskProcessor = beanManager.getReference(DiskProcessor.class);
 
         // 配置路由
         final Dispatcher.RouterGroup routeGroup = Dispatcher.group();
@@ -29,7 +30,7 @@ public class Router {
         // setServerDriverPath?serverDriverPath=xxx&adminToken=xxx
         Dispatcher.post("/api/setServerDriverPath", optionProcessor::setServerDriverPath);
 
-        Dispatcher.get("/index", indexProceesor::test);
+        Dispatcher.get("/api/directory/getAllNodes", diskProcessor::getAllNodes);
 
         Dispatcher.mapping();
     }
