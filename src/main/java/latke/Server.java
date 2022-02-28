@@ -1,11 +1,14 @@
 package latke;
 
 import latke.processor.Router;
+import latke.service.DirectoryService;
+import latke.service.OptionService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.b3log.latke.Latkes;
 import org.b3log.latke.http.BaseServer;
+import org.b3log.latke.ioc.BeanManager;
 import org.b3log.latke.repository.jdbc.util.JdbcRepositories;
 
 public class Server extends BaseServer {
@@ -39,9 +42,14 @@ public class Server extends BaseServer {
             Latkes.shutdown();
         }));
 
+        final BeanManager beanManager = BeanManager.getInstance();
+        final OptionService optionService = beanManager.getReference(OptionService.class);
+        final DirectoryService directoryService = beanManager.getReference(DirectoryService.class);
+
         // 读取sharing_option表中 配置信息
+        final String serverStoragePath = optionService.queryServerDriverPath();
 
-
+        directoryService.initDirectoryStructure(serverStoragePath);
 
 
         Router router = new Router();

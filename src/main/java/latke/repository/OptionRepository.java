@@ -14,6 +14,6 @@ public class OptionRepository extends AbstractRepository {
 
     public JSONObject queryOption(String optionName) throws RepositoryException {
         // 查询
-        return getFirst(new Query().setFilter(new PropertyFilter("oId", FilterOperator.EQUAL, optionName)));
+        return getFirst(new Query().setFilter(new PropertyFilter("optionName", FilterOperator.EQUAL, optionName)));
     }
 }

@@ -108,6 +108,36 @@
           "description": "系统设置 值"
         }
       ]
+    },
+    {
+      "name": "directory",
+      "description": "系统设置信息",
+      "keys": [
+        {
+          "name": "oId",
+          "type": "String",
+          "length": 19,
+          "description": "主键 配置信息ID"
+        },
+        {
+          "name": "directoryName",
+          "type": "String",
+          "length": 64,
+          "description": "文件夹名称"
+        },
+        {
+          "name": "directoryAbsolutePath",
+          "type": "String",
+          "length": 255,
+          "description": "文件夹绝对路径"
+        },
+        {
+          "name": "directoryRootPath",
+          "type": "String",
+          "length": 64,
+          "description": "文件夹根目录"
+        }
+      ]
     }
   ]
 }

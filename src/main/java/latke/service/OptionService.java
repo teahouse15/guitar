@@ -17,9 +17,9 @@ public class OptionService {
      * 查询程序主目录所在位置
      * @return
      */
-    public JSONObject queryServerDriverPath() {
+    public String queryServerDriverPath() {
         try {
-            return optionRepository.queryOption("serverDriverPath");
+            return optionRepository.queryOption("serverDriverPath").getString("optionValue");
         } catch (RepositoryException e) {
             e.printStackTrace();
             return null;

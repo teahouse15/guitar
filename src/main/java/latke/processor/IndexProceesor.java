@@ -19,8 +19,8 @@ public class IndexProceesor {
     private OptionService optionService;
 
     public void index(final RequestContext context) {
-        final JSONObject serverStoragePath = optionService.queryServerDriverPath();
-        context.renderJSON(serverStoragePath);
+        final String serverStoragePath = optionService.queryServerDriverPath();
+        context.renderMsg(serverStoragePath);
     }
 
     public void test(final RequestContext context) {
